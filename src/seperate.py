@@ -10,11 +10,11 @@ def create_sheet(basic_info_list,event_list,name):
         'values':basic_info_list
     },
     {
-        'range':'D:D',
+        'range':'D:E',
         'values':event_list
     },
     {
-        'range':'E:E',
+        'range':'F:F',
         'values':[['Hours(3-5)']]
     }])
     return ws_new
@@ -54,7 +54,7 @@ def format_sheet(ws,index_list,N):
     i=0
     while i<N:
 
-        range="A"+str(index_list[i])+":E"+str(index_list[i+1])
+        range="A"+str(index_list[i])+":F"+str(index_list[i+1])
         print(range)
         format={
             "backgroundColor": 
@@ -62,7 +62,8 @@ def format_sheet(ws,index_list,N):
             "red": r[i],
             "green": g[i],
             "blue": b[i]
-            }
+            },
+            "wrapStrategy": "CLIP"
         }
         ws.format(range,format )
         i+=1
@@ -71,7 +72,8 @@ def format_sheet(ws,index_list,N):
 gc = gspread.service_account('keys.json')
 
 # Open a sheet from a spreadsheet in one go
-gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/1uM1QB4R3q41fE9okszs7UJzfHWtpZFLTwPVeCd4pgas/edit#gid=0')
+# rithvik@gsheetaccess6300.iam.gserviceaccount.com
+gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/10su7gdkkfWJ9mS0oGoNYqczGX7nJKCuaw8gYO_blHCk/edit#gid=0')
 
 ws=gs.get_worksheet(1)
 basic_info_list= ws.batch_get(['A:C'])[0]
@@ -80,7 +82,7 @@ no_of_evaluators=4
 i=0
 c='D'
 while i<no_of_events:
-    col_name=c+":"+c
+    col_name=c+":"+chr(ord(c)+1)
     name="Event-"+str(i+1)
     event_list=ws.batch_get([col_name])[0]
     ws_new=create_sheet(basic_info_list,event_list,name)

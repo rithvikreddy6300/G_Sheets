@@ -10,16 +10,16 @@ SCOPES=["https://www.googleapis.com/auth/spreadsheets"]
 
 creds= None
 creds=service_account.Credentials.from_service_account_file(SA_FILE,scopes=SCOPES)
-
-SAMPLE_SHEET_ID="1mL3ExNCHbxHDX0uCEPBzkehPaZjLV-ZxVI9W7AWj2fI"
+# rithvik@gsheetaccess6300.iam.gserviceaccount.com
+SAMPLE_SHEET_ID="1iMNLHMkSq_sj6jYrdEp8CDcoeM3a6pD5ojRQ28B5qB8"
 
 service=build('sheets','v4',credentials=creds)
 
 sheet=service.spreadsheets()
-result= sheet.values().get(spreadsheetId=SAMPLE_SHEET_ID,range="sheet1").execute()
+result= sheet.values().get(spreadsheetId=SAMPLE_SHEET_ID,range="copy").execute()
 
 values=result.get('values',[])
-# pprint(values)
+pprint(values)
 
 # writing to a sheet (it will over write he needeed space so part of the previous one may still exist)
 # lis=[["rithvik",45],["brad",50],["Shasha",100]]
@@ -68,17 +68,18 @@ lis1=[]
 lis2=[]
 lis3=[]
 for item in values:
-    year=item[2][2:4]
+    year=item[1][2:4]
     if year=="19":
         lis1.append(item)
     if year=="20":
         lis2.append(item)
     if year=="21":
         lis3.append(item)
-NO_OF_FOUTH=50
-NO_OF_THIRD=40
-NO_OF_SECOND=30
-NO_OF_FIRST=25
+
+NO_OF_FOUTH=5
+NO_OF_THIRD=20
+NO_OF_SECOND=25
+NO_OF_FIRST=0
 
 if len(lis1)>NO_OF_FOUTH:
     lis1=lis1[0:NO_OF_FOUTH]
