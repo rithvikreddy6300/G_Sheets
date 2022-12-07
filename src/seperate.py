@@ -97,7 +97,7 @@ range=c+":"+chr(ord(c)+no_of_events+1)
 hours_list=[]
 i=0
 while i<no_of_events:
-    hours_list.append("Event-1(3-5)")
+    hours_list.append("Event-"+str(i+1)+"(3-5)")
     i+=1
 hours_list.append("Total Hours")
 hours_list.append("Remarks")
