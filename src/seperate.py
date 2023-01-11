@@ -73,6 +73,7 @@ gc = gspread.service_account('keys.json')
 
 # Open a sheet from a spreadsheet in one go
 # rithvik@gsheetaccess6300.iam.gserviceaccount.com
+# Gsheet format is 3 cols of basic info and 2 cols for each event
 gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tp_aT7d59zsApcoNsxpemf8ThFpMJVVEhz30jL4iWTs/edit#gid=174387397')
 
 ws=gs.get_worksheet(1)
