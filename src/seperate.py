@@ -73,7 +73,7 @@ gc = gspread.service_account('keys.json')
 
 # Open a sheet from a spreadsheet in one go
 # rithvik@gsheetaccess6300.iam.gserviceaccount.com
-gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/10su7gdkkfWJ9mS0oGoNYqczGX7nJKCuaw8gYO_blHCk/edit#gid=0')
+gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/1tp_aT7d59zsApcoNsxpemf8ThFpMJVVEhz30jL4iWTs/edit#gid=174387397')
 
 ws=gs.get_worksheet(1)
 basic_info_list= ws.batch_get(['A:C'])[0]
