@@ -48,6 +48,7 @@ def get_index_list(event_list,N):
 
 def format_sheet(ws,index_list,N):
     # colours for 5 evaluators
+    # may be change to something good
     r=[0.0,1.0,0.9,0.6,0.9]
     g=[0.9,0.6,0.9,0.6,0.0]
     b=[0.9,0.0,0.0,0.9,0.9]
